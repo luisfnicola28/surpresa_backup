@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surpresa 💖</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#ffd6e8,#ff9acb);
+      color:#5a2a44;
+      overflow-x:hidden;
+    }
+
+    header{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:2rem;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero{
+      background:rgba(255,240,247,.92);
+      padding:3rem 2.5rem;
+      border-radius:28px;
+      box-shadow:0 25px 45px rgba(255,105,180,.25);
+      max-width:600px;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:2.5rem;
+      margin-bottom:1rem;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      margin-bottom:2rem;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:.9rem 2rem;
+      background:#e63946;
+      color:#fff;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    section{
+      padding:4rem 1.5rem;
+      max-width:1000px;
+      margin:0 auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-family:'Playfair Display',serif;
+      font-size:2rem;
+      margin-bottom:3rem;
+    }
+
+    /* GALERIA */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:2rem;
+    }
+
+    .photo{
+      background:#fff;
+      padding:12px 12px 18px;
+      border-radius:14px;
+      box-shadow:0 18px 35px rgba(0,0,0,.18);
+      transform:rotate(-1deg);
+      transition:.4s ease;
+    }
+
+    .photo:nth-child(2){ transform:rotate(1.5deg); }
+    .photo:nth-child(3){ transform:rotate(-0.5deg); }
+
+    .photo:hover{
+      transform:rotate(0deg) scale(1.04);
+    }
+
+    .photo img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:8px;
+      display:block;
+    }
+
+    .photo p{
+      margin-top:12px;
+      text-align:center;
+      font-family:'Playfair Display',serif;
+      font-size:.95rem;
+      color:#5a2a44;
+    }
+
+    .message{
+      background:rgba(255,255,255,.9);
+      border-radius:24px;
+      padding:3rem 2rem;
+      text-align:center;
+      box-shadow:0 15px 35px rgba(0,0,0,.15);
+    }
+
+    footer{
+      text-align:center;
+      padding:2rem 1rem;
+      font-size:.9rem;
+      opacity:.85;
+    }
+
+    canvas{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="hearts"></canvas>
+
+<!-- INTRO -->
+<div id="intro" style="position:fixed;inset:0;z-index:10;background:linear-gradient(135deg,#ff9acb,#ff5fa2);display:flex;align-items:center;justify-content:center">
+  <div style="background:#fff;padding:3rem 2.5rem;border-radius:30px;text-align:center;max-width:460px;box-shadow:0 25px 45px rgba(255,105,180,.35)">
+    <h1 style="font-family:'Playfair Display',serif;color:#e6398f">💖 Presente Diferente 💖</h1>
+    <p style="margin:1.5rem 0 2.5rem">Clique na tesoura para abrir</p>
+
+    <div style="position:relative;height:18px;margin-bottom:2.5rem">
+      <div id="ribbonLeft" style="position:absolute;left:0;top:0;width:50%;height:100%;background:#ff5fa2;border-radius:999px 0 0 999px"></div>
+      <div id="ribbonRight" style="position:absolute;right:0;top:0;width:50%;height:100%;background:#ff85c1;border-radius:0 999px 999px 0"></div>
+    </div>
+
+    <button id="scissors" onclick="cortar()" style="font-size:2.6rem;background:none;border:none;cursor:pointer;">✂️</button>
+
+    <audio id="cutSound" preload="auto">
+      <source src="https://assets.mixkit.co/sfx/preview/mixkit-scissors-cutting-paper-2827.mp3">
+    </audio>
+  </div>
+</div>
+
+<header>
+  <div class="hero">
+    <h1>Feliz Aniversário 💖🎉</h1>
+    <p>Essa surpresa foi feita com muito carinho.</p>
+    <a href="#memorias" class="btn">Descubra a surpresa ✨</a>
+  </div>
+</header>
+
+<section id="memorias">
+  <h2 class="section-title">Momentos que lembro de você</h2>
+
+  <div class="gallery">
+    <div class="photo">
+      <img src="foto-1.jpeg" alt="Momento 1">
+      <p>Nesse dia eu lembro que era uma sexta feira e eu ia trabalhar no dia, ai você estava usando uma jaqueta rosa e aquela meia gigante kkkkk. E você falou assim "Não temos nenhuma foto juntos ainda, porque a gente não tira umas" Então tiramos algumas e eu guardei todas com muita felicidade💕</p>
+    </div>
+
+    <div class="photo">
+      <img src="foto-2.jpeg" alt="Momento 2">
+      <p>Nesse dia eu gostei bastante da foto principalmente, ficaram muito bonitas e foi muito divertido conhecer o pesqueiro com você e seus pais. Também na hora da volta você voltou dirigindo com motorista de autoescola do lado o que foi muito engraçado e divertido nesse dia, eu ri o caminho inteiro e rio só de lembrar. ✨</p>
+    </div>
+
+    <div class="photo">
+      <img src="foto-3.jpeg" alt="Momento 3">
+      <p>Esse dia dispensa apresentações, foi o dia mais marcante do ano passado para mim, lembro na minha felicidade em ir comprar a aliança e depois na ansiedade para esconder ela, que ficou do seu lado quase que a noite inteira, e a sua reação foi inesquicível "sério", "mentira, não acredito", "como que faz", pode ter certeza que só de ter pensado em como te dar e qual comprar já me fez o homem mais feliz do mundo💍</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Textinho para animar seu dia</h2>
+  <div class="message">
+    <p>Parabéns, muitas felicidades, muita saúde e paz.</p>
+    <p>
+      Você foi a melhor coisa que me aconteceu em 2024/2025, gosto de passar todos os momentos com você sejam bons ou ruins, o importante é estar junto com você, porque sua companhia transforma algo ruim em algo incrível,
+      seu sorriso, seu jeito e sua companhia não tem preço, o sentimento é único em ver você sorrindo pelo fato de estar comendo um docinho e depois já querer ir hibernar e eu amo muito isso.
+      Escutei em um jogo essa frase e sempre penso você sobre ela "Se Deus me desse uma segunda chance, eu faria tudo igual" e também essa
+      "Te amo mil milhões" 💖
+    </p>
+    <p>Essa música dedico a você, ela foi muito importante para meu eu criança e você sem dúvidas é a representação dela na minha visão. Pense que quem está dedicando ela não sou eu de agora, sou eu de 12 anos atrás que quando ouvia sempre gostava, mas nunca entendeu o signficado, mas hoje em dia eu entendi, e significa você 🎶</p>
+  </div>
+</section>
+
+<footer>
+  Clica no link ❤️<br><br>
+  <a href=https://open.spotify.com/intl-pt/album/3PVhG6KbnKGq9ubx4h1Pcr?siZNuU4Ee2RK-UC7cs4BTJJQ target="_blank">
+    🎵 Ouvir no Spotify
+  </a>
+</footer>
+
+<script>
+const canvas = document.getElementById('hearts');
+const ctx = canvas.getContext('2d');
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const colors = ['#ff5fa2','#ff85c1','#ffd1e8','#ff9acb'];
+const hearts = [];
+
+for(let i=0;i<120;i++){
+  hearts.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    size: Math.random()*6+4,
+    speed: Math.random()*1+.5,
+    color: colors[Math.floor(Math.random()*colors.length)]
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hearts.forEach(h=>{
+    ctx.fillStyle=h.color;
+    ctx.beginPath();
+    ctx.moveTo(h.x,h.y);
+    ctx.bezierCurveTo(h.x-h.size,h.y-h.size,h.x-h.size*2,h.y+h.size,h.x,h.y+h.size*2);
+    ctx.bezierCurveTo(h.x+h.size*2,h.y+h.size,h.x+h.size,h.y-h.size,h.x,h.y);
+    ctx.fill();
+    h.y+=h.speed;
+    if(h.y>canvas.height){h.y=-10;h.x=Math.random()*canvas.width;}
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+let done=false;
+function cortar(){
+  if(done) return;
+  done=true;
+  document.getElementById('cutSound').play();
+  document.getElementById('intro').style.opacity=0;
+  setTimeout(()=>document.getElementById('intro').style.display='none',1500);
+}
+</script>
+
+</body>
+</html>
+
+
+      
